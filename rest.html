@@ -1,0 +1,2958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Golden Spoon | Heritage Forest Restaurant</title>
+
+    <meta name="description"
+          content="The Golden Spoon - a heritage restaurant inspired by India's ancient food traditions, nature and Araku Valley.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Serif+Display&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+           ROOT COLORS
+        ========================================================= */
+
+        :root {
+            --forest: #08251b;
+            --deep-forest: #051912;
+            --emerald: #123d2d;
+            --green: #1e6043;
+            --sage: #799b78;
+
+            --gold: #d5aa55;
+            --bright-gold: #f0cf7a;
+            --cream: #f8f0dc;
+
+            --sand: #e7d5b5;
+            --terracotta: #a95d3d;
+            --brown: #5b3827;
+            --dark-brown: #2b1911;
+
+            --white: #fffdf7;
+            --muted: #c5cbbb;
+
+            --glass: rgba(255,255,255,0.075);
+            --glass-border: rgba(255,255,255,0.16);
+
+            --shadow: 0 20px 60px rgba(0,0,0,0.35);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--cream);
+
+            background:
+                linear-gradient(
+                    rgba(5,25,18,0.93),
+                    rgba(8,37,27,0.91)
+                ),
+                url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           GLOBAL BACKGROUND
+        ========================================================= */
+
+        .nature-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(3,22,15,0.96),
+                    rgba(10,47,32,0.88),
+                    rgba(37,63,38,0.82)
+                ),
+                url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            filter: saturate(1.1);
+        }
+
+        .nature-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(213,170,85,0.14),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(50,140,91,0.16),
+                    transparent 30%
+                );
+        }
+
+
+        /* =========================================================
+           TOP MARQUEE
+        ========================================================= */
+
+        .top-marquee {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 34px;
+
+            background: var(--gold);
+            color: var(--deep-forest);
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+            z-index: 1000;
+
+            font-family: "Cinzel", serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-track span {
+            margin-right: 60px;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        nav {
+            position: fixed;
+
+            top: 34px;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 999;
+
+            padding: 18px 6%;
+
+            background: rgba(5,25,18,0.82);
+            backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid rgba(213,170,85,0.2);
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Cinzel", serif;
+            font-size: 24px;
+            font-weight: 700;
+
+            color: var(--bright-gold);
+
+            letter-spacing: 2px;
+        }
+
+        .logo small {
+            display: block;
+
+            font-family: "Poppins", sans-serif;
+
+            color: var(--muted);
+
+            font-size: 8px;
+            letter-spacing: 4px;
+
+            text-align: center;
+
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--cream);
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--bright-gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            position: relative;
+
+            padding: 150px 20px 80px;
+
+            background:
+                linear-gradient(
+                    rgba(4,27,18,0.52),
+                    rgba(4,27,18,0.88)
+                ),
+                url("https://i.pinimg.com/736x/0b/1b/b1/0b1bb1c680220ab812a976bd2f13f8a7.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 20px;
+
+            border: 1px solid rgba(240,207,122,0.3);
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+
+            animation: heroReveal 1.3s ease forwards;
+        }
+
+        @keyframes heroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            color: var(--bright-gold);
+
+            font-family: "Cinzel", serif;
+
+            font-size: 13px;
+            letter-spacing: 5px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "DM Serif Display", serif;
+
+            font-size: clamp(55px, 9vw, 115px);
+
+            line-height: 0.9;
+
+            color: var(--white);
+
+            text-shadow:
+                0 10px 35px rgba(0,0,0,0.6);
+        }
+
+        .hero h1 span {
+            color: var(--bright-gold);
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            margin: 30px auto;
+
+            color: #e0dfd1;
+
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+
+            border-radius: 4px;
+
+            font-family: "Cinzel", serif;
+
+            font-size: 12px;
+            letter-spacing: 1.5px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--deep-forest);
+
+            border: 1px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: var(--bright-gold);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(213,170,85,0.25);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(240,207,122,0.7);
+
+            color: var(--cream);
+
+            background: rgba(255,255,255,0.04);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+            padding: 100px 6%;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: var(--gold);
+
+            font-family: "Cinzel", serif;
+
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+
+        .section-title h2 {
+            font-family: "DM Serif Display", serif;
+
+            font-size: clamp(38px, 5vw, 62px);
+
+            color: var(--white);
+
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            max-width: 650px;
+
+            margin: 15px auto 0;
+
+            color: var(--muted);
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           WELCOME
+        ========================================================= */
+
+        .welcome {
+            background:
+                linear-gradient(
+                    rgba(5,25,18,0.91),
+                    rgba(8,37,27,0.94)
+                );
+        }
+
+        .welcome-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+        .welcome-image {
+            position: relative;
+        }
+
+        .welcome-image img {
+            height: 530px;
+
+            object-fit: cover;
+
+            border-radius: 3px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .image-frame {
+            position: absolute;
+
+            inset: 18px;
+
+            border: 1px solid rgba(240,207,122,0.55);
+
+            pointer-events: none;
+        }
+
+        .welcome-content h3 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--bright-gold);
+
+            font-size: 34px;
+
+            margin-bottom: 20px;
+        }
+
+        .welcome-content p {
+            color: var(--muted);
+
+            line-height: 1.9;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================================
+           ARaku / NATURE
+        ========================================================= */
+
+        .araku {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3,23,15,0.94),
+                    rgba(3,23,15,0.65)
+                ),
+                url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            background-attachment: fixed;
+        }
+
+        .araku-content {
+            max-width: 720px;
+        }
+
+        .araku-content h2 {
+            font-family: "DM Serif Display", serif;
+
+            font-size: clamp(42px, 6vw, 72px);
+
+            color: var(--white);
+
+            margin: 15px 0;
+        }
+
+        .araku-content p {
+            color: #d9ddd2;
+
+            line-height: 1.9;
+
+            margin-bottom: 25px;
+        }
+
+        .nature-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .nature-tags span {
+            padding: 9px 15px;
+
+            border: 1px solid rgba(240,207,122,0.4);
+
+            color: var(--bright-gold);
+
+            background: rgba(0,0,0,0.25);
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================================
+           MENU
+        ========================================================= */
+
+        .menu-section {
+            background:
+                linear-gradient(
+                    rgba(244,234,212,0.96),
+                    rgba(231,213,181,0.96)
+                );
+
+            color: var(--dark-brown);
+        }
+
+        .menu-section .section-title h2 {
+            color: var(--forest);
+        }
+
+        .menu-section .section-title p {
+            color: #695d4e;
+        }
+
+        .menu-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: rgba(255,250,235,0.9);
+
+            border: 1px solid rgba(91,56,39,0.16);
+
+            overflow: hidden;
+
+            transition: 0.4s;
+
+            box-shadow: 0 10px 30px rgba(53,35,21,0.09);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 25px 45px rgba(53,35,21,0.2);
+        }
+
+        .menu-card img {
+            height: 230px;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .menu-info {
+            padding: 23px;
+        }
+
+        .menu-info h3 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--forest);
+
+            font-size: 23px;
+
+            margin-bottom: 8px;
+        }
+
+        .menu-info p {
+            color: #716454;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: var(--terracotta);
+
+            font-weight: 600;
+
+            font-family: "Cinzel", serif;
+        }
+
+
+        /* =========================================================
+           EXPERIENCE
+        ========================================================= */
+
+        .experience {
+            background:
+                linear-gradient(
+                    rgba(5,25,18,0.92),
+                    rgba(8,37,27,0.95)
+                );
+        }
+
+        .experience-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .experience-card {
+            min-height: 330px;
+
+            padding: 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(240,207,122,0.22);
+        }
+
+        .experience-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    transparent 25%,
+                    rgba(2,15,10,0.94)
+                );
+
+            z-index: 1;
+        }
+
+        .experience-card:nth-child(1) {
+            background:
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+        }
+
+        .experience-card:nth-child(2) {
+            background:
+                url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+        }
+
+        .experience-card:nth-child(3) {
+            background:
+                url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+        }
+
+        .experience-card div {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .experience-card h3 {
+            font-family: "DM Serif Display", serif;
+
+            font-size: 32px;
+
+            color: var(--white);
+
+            margin-bottom: 8px;
+        }
+
+        .experience-card p {
+            color: #d8d8cc;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           GREENERY / FACILITIES
+        ========================================================= */
+
+        .greenery {
+            background:
+                linear-gradient(
+                    rgba(12,55,38,0.9),
+                    rgba(8,37,27,0.96)
+                ),
+                url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .facility-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .facility-card {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.07);
+
+            border:
+                1px solid rgba(240,207,122,0.2);
+
+            backdrop-filter: blur(12px);
+
+            transition: 0.3s;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-7px);
+
+            background: rgba(255,255,255,0.11);
+
+            border-color: rgba(240,207,122,0.5);
+        }
+
+        .facility-card .number {
+            font-family: "DM Serif Display", serif;
+
+            color: var(--bright-gold);
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+        }
+
+        .facility-card h3 {
+            font-family: "Playfair Display", serif;
+
+            margin-bottom: 8px;
+
+            color: var(--white);
+        }
+
+        .facility-card p {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           HERITAGE
+        ========================================================= */
+
+        .heritage {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f0e1c3,
+                    #d9c19b
+                );
+
+            color: var(--dark-brown);
+        }
+
+        .heritage-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(6, 1fr);
+
+            gap: 15px;
+        }
+
+        .heritage-card {
+            padding: 30px 12px;
+
+            text-align: center;
+
+            background:
+                rgba(255,250,235,0.65);
+
+            border:
+                1px solid rgba(91,56,39,0.15);
+
+            transition: 0.3s;
+        }
+
+        .heritage-card:hover {
+            background: #fff8e9;
+
+            transform: translateY(-7px);
+        }
+
+        .heritage-card span {
+            display: block;
+
+            color: var(--terracotta);
+
+            font-family: "Cinzel", serif;
+
+            font-size: 24px;
+
+            margin-bottom: 12px;
+        }
+
+        .heritage-card h3 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--forest);
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================================
+           HYGIENE
+        ========================================================= */
+
+        .hygiene {
+            background:
+                linear-gradient(
+                    rgba(4,27,18,0.94),
+                    rgba(7,31,22,0.96)
+                );
+        }
+
+        .hygiene-box {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .hygiene-image img {
+            height: 500px;
+
+            object-fit: cover;
+
+            border-radius: 3px;
+        }
+
+        .hygiene-list {
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .hygiene-item {
+            padding: 22px;
+
+            background: rgba(255,255,255,0.05);
+
+            border-left:
+                3px solid var(--gold);
+
+            border-top:
+                1px solid rgba(255,255,255,0.07);
+
+            border-right:
+                1px solid rgba(255,255,255,0.07);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.07);
+        }
+
+        .hygiene-item h3 {
+            color: var(--bright-gold);
+
+            font-family: "Playfair Display", serif;
+
+            margin-bottom: 5px;
+        }
+
+        .hygiene-item p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           STORY
+        ========================================================= */
+
+        .story {
+            background:
+                linear-gradient(
+                    rgba(6,29,20,0.83),
+                    rgba(6,29,20,0.92)
+                ),
+                url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            text-align: center;
+        }
+
+        .story-content {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .story-content h2 {
+            font-family: "DM Serif Display", serif;
+
+            color: var(--bright-gold);
+
+            font-size: clamp(40px, 6vw, 70px);
+
+            margin-bottom: 25px;
+        }
+
+        .story-content p {
+            color: #d8ddd3;
+
+            line-height: 2;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
+           OFFER
+        ========================================================= */
+
+        .offer {
+            padding: 70px 6%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--terracotta),
+                    #713b29
+                );
+
+            text-align: center;
+        }
+
+        .offer h2 {
+            font-family: "DM Serif Display", serif;
+
+            font-size: 45px;
+
+            color: var(--white);
+
+            margin-bottom: 10px;
+        }
+
+        .offer p {
+            color: #f5ddca;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================================
+           REVIEWS
+        ========================================================= */
+
+        .reviews {
+            background:
+                linear-gradient(
+                    rgba(6,27,19,0.96),
+                    rgba(8,37,27,0.98)
+                );
+        }
+
+        .review-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .review-card {
+            padding: 30px;
+
+            background: rgba(255,255,255,0.055);
+
+            border:
+                1px solid rgba(240,207,122,0.18);
+
+            position: relative;
+        }
+
+        .review-card::before {
+            content: "“";
+
+            position: absolute;
+
+            right: 20px;
+            top: 5px;
+
+            font-family: "DM Serif Display", serif;
+
+            font-size: 70px;
+
+            color: rgba(240,207,122,0.18);
+        }
+
+        .review-card p {
+            color: #d1d6cb;
+
+            line-height: 1.8;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .review-card h4 {
+            color: var(--bright-gold);
+
+            font-family: "Playfair Display", serif;
+        }
+
+
+        /* =========================================================
+           RESERVATION
+        ========================================================= */
+
+        .reservation {
+            background:
+                linear-gradient(
+                    rgba(240,225,195,0.95),
+                    rgba(226,205,167,0.96)
+                );
+
+            color: var(--dark-brown);
+        }
+
+        .reservation-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: rgba(255,250,235,0.82);
+
+            padding: 45px;
+
+            border:
+                1px solid rgba(91,56,39,0.15);
+
+            box-shadow: 0 20px 50px rgba(53,35,21,0.12);
+        }
+
+        .reservation-box h2 {
+            font-family: "DM Serif Display", serif;
+
+            color: var(--forest);
+
+            text-align: center;
+
+            font-size: 45px;
+
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            color: var(--brown);
+
+            font-weight: 600;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            border: 1px solid rgba(91,56,39,0.22);
+
+            background: rgba(255,255,255,0.65);
+
+            padding: 14px;
+
+            color: var(--dark-brown);
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold);
+
+            box-shadow:
+                0 0 0 3px rgba(213,170,85,0.12);
+        }
+
+        .submit-btn {
+            width: 100%;
+
+            border: none;
+
+            margin-top: 22px;
+
+            padding: 16px;
+
+            background: var(--forest);
+
+            color: var(--bright-gold);
+
+            font-family: "Cinzel", serif;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--terracotta);
+
+            color: var(--white);
+        }
+
+
+        /* =========================================================
+           CONTACT MARQUEE
+        ========================================================= */
+
+        .contact-marquee {
+            padding: 15px 0;
+
+            background: var(--gold);
+
+            color: var(--deep-forest);
+
+            overflow: hidden;
+
+            font-family: "Cinzel", serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background:
+                #03120d;
+
+            padding: 60px 6% 25px;
+
+            border-top:
+                1px solid rgba(240,207,122,0.15);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 35px;
+        }
+
+        .footer-brand h2 {
+            font-family: "Cinzel", serif;
+
+            color: var(--bright-gold);
+
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            max-width: 400px;
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            font-size: 13px;
+        }
+
+        footer h3 {
+            color: var(--cream);
+
+            font-family: "Playfair Display", serif;
+
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            margin-bottom: 9px;
+        }
+
+        .copyright {
+            max-width: 1200px;
+
+            margin: 40px auto 0;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.08);
+
+            text-align: center;
+
+            color: #788278;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           FLOATING NATURE DECORATION
+        ========================================================= */
+
+        .leaf {
+            position: fixed;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(58,130,83,0.16),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+        .leaf.one {
+            top: 30%;
+            left: -80px;
+        }
+
+        .leaf.two {
+            right: -80px;
+            top: 65%;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .menu-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .experience-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .facility-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .heritage-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 90vh;
+
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            section {
+                padding: 75px 5%;
+            }
+
+            .welcome-grid,
+            .hygiene-box {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .welcome-image img,
+            .hygiene-image img {
+                height: 400px;
+            }
+
+            .menu-grid,
+            .experience-grid,
+            .review-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .facility-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .heritage-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .form-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .reservation-box {
+                padding: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .facility-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .heritage-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .reservation-box h2 {
+                font-size: 36px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Fixed Nature Background -->
+    <div class="nature-bg"></div>
+
+    <div class="leaf one"></div>
+    <div class="leaf two"></div>
+
+
+    <!-- =========================================================
+         TOP MARQUEE
+    ========================================================== -->
+
+    <div class="top-marquee">
+
+        <div class="marquee-track">
+
+            <span>
+                THE GOLDEN SPOON
+            </span>
+
+            <span>
+                HERITAGE • NATURE • TRADITION
+            </span>
+
+            <span>
+                ARaku INSPIRED DINING
+            </span>
+
+            <span>
+                SLOW FOOD • WARM LIGHT • GREENERY
+            </span>
+
+            <span>
+                THE GOLDEN SPOON
+            </span>
+
+            <span>
+                HERITAGE • NATURE • TRADITION
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                THE GOLDEN SPOON
+                <small>HERITAGE DINING</small>
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#story">Our Story</a>
+                </li>
+
+                <li>
+                    <a href="#menu">Menu</a>
+                </li>
+
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+
+                <li>
+                    <a href="#hygiene">Hygiene</a>
+                </li>
+
+                <li>
+                    <a href="#reservation">Reserve</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                A FOREST • A TABLE • A STORY
+            </div>
+
+            <h1>
+                The
+                <span>Golden</span>
+                Spoon
+            </h1>
+
+            <p>
+                An intimate heritage restaurant where ancient Indian
+                food traditions meet lush greenery, warm wood,
+                peaceful evenings and unforgettable flavours.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="btn btn-primary">
+                    Explore Menu
+                </a>
+
+                <a href="#reservation" class="btn btn-outline">
+                    Reserve a Table
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         WELCOME
+    ========================================================== -->
+
+    <section class="welcome">
+
+        <div class="section-container">
+
+            <div class="welcome-grid">
+
+                <div class="welcome-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1200&q=85"
+                        alt="Warm heritage restaurant dining room">
+
+                    <div class="image-frame"></div>
+
+                </div>
+
+
+                <div class="welcome-content">
+
+                    <div class="eyebrow">
+                        WELCOME TO THE FOREST TABLE
+                    </div>
+
+                    <h3>
+                        Where nature becomes part of the meal.
+                    </h3>
+
+                    <p>
+                        Step away from the noise and enter a restaurant
+                        surrounded by the feeling of a forest retreat.
+                    </p>
+
+                    <p>
+                        Deep greens, natural wood, soft golden lighting
+                        and heritage-inspired interiors create a peaceful
+                        setting for couples, friends and families.
+                    </p>
+
+                    <p>
+                        Our menu celebrates traditional ingredients,
+                        slow cooking and recipes inspired by the diverse
+                        food cultures of India.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ARAKU
+    ========================================================== -->
+
+    <section class="araku">
+
+        <div class="section-container">
+
+            <div class="araku-content">
+
+                <div class="eyebrow">
+                    INSPIRED BY THE EASTERN GHATS
+                </div>
+
+                <h2>
+                    A Taste of Araku
+                </h2>
+
+                <p>
+                    Our concept draws inspiration from the forests,
+                    hills and indigenous food traditions associated
+                    with the Araku Valley region.
+                </p>
+
+                <p>
+                    Traditional ingredients such as millets, seasonal
+                    greens, bamboo cooking and locally inspired coffee
+                    become part of our heritage dining experience.
+                </p>
+
+                <div class="nature-tags">
+
+                    <span>Millets</span>
+                    <span>Forest Greens</span>
+                    <span>Bamboo Cooking</span>
+                    <span>Mountain Coffee</span>
+                    <span>Slow Food</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         MENU
+    ========================================================== -->
+
+    <section class="menu-section" id="menu">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    FROM OUR HERITAGE KITCHEN
+                </span>
+
+                <h2>
+                    The Forest Menu
+                </h2>
+
+                <p>
+                    Traditional inspiration, seasonal ingredients
+                    and comforting flavours presented with a
+                    refined restaurant experience.
+                </p>
+
+            </div>
+
+
+            <div class="menu-grid">
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxGGxgnJ0b7LVWyj52HCNSRcIEUt_pavES8d__tr_uF33W1aBuQMkldpc&s=10"
+                        alt="Traditional Indian dish">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Ragi Mudde & Village Dal
+                        </h3>
+
+                        <p>
+                            A rustic millet preparation paired with
+                            comforting lentils and seasonal vegetables.
+                        </p>
+
+                        <div class="price">
+                            Heritage Special
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeDEDVzbXyvQwHixSzSF1Ngy5YcbDrFX1Iuo0z2sNFig&s=10"
+                        alt="Traditional rice dish">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Samala Pulihora
+                        </h3>
+
+                        <p>
+                            Millet-inspired tangy rice preparation
+                            with traditional spices and tempering.
+                        </p>
+
+                        <div class="price">
+                            Chef's Selection
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://minimalistbaker.com/wp-content/uploads/2016/12/Collard-Green-Spring-Rolls-SQUARE.jpg"
+                        alt="Fresh green vegetables">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Seasonal Forest Greens
+                        </h3>
+
+                        <p>
+                            Fresh seasonal greens prepared simply
+                            to preserve their natural character.
+                        </p>
+
+                        <div class="price">
+                            Seasonal
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://im.rediff.com/getahead/2023/sep/22food-bamboo-chicken1.jpg"
+                        alt="Traditional roasted chicken">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Bamboo-Cooked Chicken
+                        </h3>
+
+                        <p>
+                            A heritage-inspired slow-cooked preparation
+                            influenced by traditional bamboo cooking.
+                        </p>
+
+                        <div class="price">
+                            Signature Dish
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeGKkSOSel3yIOXrxFNgL-ip-Lkf5jlBqZOgUCUPE_0w&s=10"
+                        alt="Traditional Indian dal">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Stone-Pot Dal
+                        </h3>
+
+                        <p>
+                            Slow-cooked lentils with earthy spices
+                            and a gentle smoky character.
+                        </p>
+
+                        <div class="price">
+                            House Favourite
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVhu5NsX3npA-xWwp_LCefWTCer5s_VcTFjkaO6ZEYgQ&s=10"
+                        alt="Fresh mountain coffee">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Mountain Coffee
+                        </h3>
+
+                        <p>
+                            Aromatic coffee inspired by the highlands
+                            and coffee-growing traditions of Araku.
+                        </p>
+
+                        <div class="price">
+                            After Dinner
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsuwCWdYMGsE_blcxJAw5wnJv5YMC6jp_jEmGnUfHxuw&s=10"
+                        alt="Healthy grain bowl">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Korra Village Bowl
+                        </h3>
+
+                        <p>
+                            A nourishing bowl built around traditional
+                            millet, vegetables and simple spices.
+                        </p>
+
+                        <div class="price">
+                            House Bowl
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://i.pinimg.com/474x/50/58/96/505896a163281660019dc6f1a3f4a15c.jpg"
+                        alt="Traditional dessert">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Korra Payasam
+                        </h3>
+
+                        <p>
+                            A comforting millet dessert with
+                            gentle sweetness and traditional flavours.
+                        </p>
+
+                        <div class="price">
+                            Heritage Dessert
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="menu-card">
+
+                    <img
+                        src="https://i.pinimg.com/474x/e8/95/db/e895dbe73fdce24357863847ac282a8b.jpg"
+                        alt="Traditional nuts and sweet">
+
+                    <div class="menu-info">
+
+                        <h3>
+                            Millet & Nut Sweet
+                        </h3>
+
+                        <p>
+                            A simple dessert inspired by traditional
+                            grain and nut-based preparations.
+                        </p>
+
+                        <div class="price">
+                            Chef's Sweet
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         EXPERIENCE
+    ========================================================== -->
+
+    <section class="experience" id="experience">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    YOUR TABLE • YOUR MOMENT
+                </span>
+
+                <h2>
+                    Choose Your Mood
+                </h2>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <div class="experience-card">
+
+                    <div>
+
+                        <h3>
+                            The Moonlit Garden
+                        </h3>
+
+                        <p>
+                            A quiet setting for couples,
+                            surrounded by greenery and warm lights.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <div>
+
+                        <h3>
+                            The Forest Lounge
+                        </h3>
+
+                        <p>
+                            A relaxed space for friends,
+                            conversations and long evenings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <div>
+
+                        <h3>
+                            The Heritage Courtyard
+                        </h3>
+
+                        <p>
+                            Spacious family dining with a warm,
+                            peaceful atmosphere.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         GREENERY
+    ========================================================== -->
+
+    <section class="greenery">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    A RESTAURANT INSIDE NATURE
+                </span>
+
+                <h2>
+                    Green From Every Corner
+                </h2>
+
+                <p>
+                    Designed to make the dining experience feel
+                    peaceful, natural and memorable.
+                </p>
+
+            </div>
+
+
+            <div class="facility-grid">
+
+
+                <div class="facility-card">
+
+                    <div class="number">
+                        01
+                    </div>
+
+                    <h3>
+                        Garden Dining
+                    </h3>
+
+                    <p>
+                        Natural greenery around selected
+                        dining spaces.
+                    </p>
+
+                </div>
+
+
+                <div class="facility-card">
+
+                    <div class="number">
+                        02
+                    </div>
+
+                    <h3>
+                        Warm Lighting
+                    </h3>
+
+                    <p>
+                        Soft golden lighting for a calm
+                        evening atmosphere.
+                    </p>
+
+                </div>
+
+
+                <div class="facility-card">
+
+                    <div class="number">
+                        03
+                    </div>
+
+                    <h3>
+                        Natural Wood
+                    </h3>
+
+                    <p>
+                        Earthy materials inspired by
+                        traditional spaces.
+                    </p>
+
+                </div>
+
+
+                <div class="facility-card">
+
+                    <div class="number">
+                        04
+                    </div>
+
+                    <h3>
+                        Peaceful Corners
+                    </h3>
+
+                    <p>
+                        Comfortable seating for quiet
+                        conversations and relaxed dining.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ANCIENT WISDOM
+    ========================================================== -->
+
+    <section class="heritage">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    ANCIENT FOOD WISDOM
+                </span>
+
+                <h2>
+                    Simple. Natural. Traditional.
+                </h2>
+
+                <p>
+                    Our concept celebrates traditional food knowledge
+                    through ingredients, preparation and respect for
+                    seasonal cooking.
+                </p>
+
+            </div>
+
+
+            <div class="heritage-grid">
+
+
+                <div class="heritage-card">
+
+                    <span>01</span>
+
+                    <h3>
+                        Clay
+                    </h3>
+
+                </div>
+
+
+                <div class="heritage-card">
+
+                    <span>02</span>
+
+                    <h3>
+                        Bamboo
+                    </h3>
+
+                </div>
+
+
+                <div class="heritage-card">
+
+                    <span>03</span>
+
+                    <h3>
+                        Millets
+                    </h3>
+
+                </div>
+
+
+                <div class="heritage-card">
+
+                    <span>04</span>
+
+                    <h3>
+                        Seasonal Food
+                    </h3>
+
+                </div>
+
+
+                <div class="heritage-card">
+
+                    <span>05</span>
+
+                    <h3>
+                        Slow Cooking
+                    </h3>
+
+                </div>
+
+
+                <div class="heritage-card">
+
+                    <span>06</span>
+
+                    <h3>
+                        Nature
+                    </h3>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         HYGIENE
+    ========================================================== -->
+
+    <section class="hygiene" id="hygiene">
+
+        <div class="section-container">
+
+            <div class="hygiene-box">
+
+
+                <div class="hygiene-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85"
+                        alt="Clean professional restaurant kitchen">
+
+                </div>
+
+
+                <div>
+
+                    <div class="eyebrow">
+                        TRADITION WITH MODERN STANDARDS
+                    </div>
+
+                    <div class="section-title"
+                         style="text-align:left; margin-bottom:30px;">
+
+                        <h2>
+                            Clean Food.
+                            Clean Space.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="hygiene-list">
+
+
+                        <div class="hygiene-item">
+
+                            <h3>
+                                Clean Dining
+                            </h3>
+
+                            <p>
+                                Dining areas maintained with
+                                attention to cleanliness and comfort.
+                            </p>
+
+                        </div>
+
+
+                        <div class="hygiene-item">
+
+                            <h3>
+                                Kitchen Hygiene
+                            </h3>
+
+                            <p>
+                                Modern food-safety practices
+                                combined with traditional preparation.
+                            </p>
+
+                        </div>
+
+
+                        <div class="hygiene-item">
+
+                            <h3>
+                                Clean Tableware
+                            </h3>
+
+                            <p>
+                                Carefully cleaned and prepared
+                                tableware for every guest.
+                            </p>
+
+                        </div>
+
+
+                        <div class="hygiene-item">
+
+                            <h3>
+                                Fresh Ingredients
+                            </h3>
+
+                            <p>
+                                Ingredients selected with attention
+                                to freshness and seasonal availability.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         STORY
+    ========================================================== -->
+
+    <section class="story" id="story">
+
+        <div class="section-container">
+
+            <div class="story-content">
+
+                <div class="eyebrow">
+                    OUR PHILOSOPHY
+                </div>
+
+                <h2>
+                    From Forests to Your Table
+                </h2>
+
+                <p>
+                    The Golden Spoon was imagined as more than a restaurant.
+                    It is a place where food, nature, heritage and people
+                    come together.
+                </p>
+
+                <br>
+
+                <p>
+                    We take inspiration from India's diverse traditional
+                    food cultures and present them through a peaceful,
+                    modern dining experience surrounded by greenery.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         OFFER
+    ========================================================== -->
+
+    <section class="offer">
+
+        <div class="section-container">
+
+            <h2>
+                Make Tonight Memorable
+            </h2>
+
+            <p>
+                Reserve your table and experience the forest-inspired
+                evening atmosphere of The Golden Spoon.
+            </p>
+
+            <a href="#reservation"
+               class="btn btn-primary">
+
+                Reserve Your Table
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         REVIEWS
+    ========================================================== -->
+
+    <section class="reviews">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    GUEST EXPERIENCES
+                </span>
+
+                <h2>
+                    What Guests Say
+                </h2>
+
+            </div>
+
+
+            <div class="review-grid">
+
+
+                <div class="review-card">
+
+                    <p>
+                        The greenery and warm lighting make this
+                        place feel completely different from a
+                        normal restaurant.
+                    </p>
+
+                    <h4>
+                        — Guest Review
+                    </h4>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <p>
+                        Beautiful atmosphere, traditional flavours
+                        and a very peaceful place for dinner.
+                    </p>
+
+                    <h4>
+                        — Guest Review
+                    </h4>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <p>
+                        Perfect for a family evening. The heritage
+                        concept makes the experience memorable.
+                    </p>
+
+                    <h4>
+                        — Guest Review
+                    </h4>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         RESERVATION
+    ========================================================== -->
+
+    <section class="reservation" id="reservation">
+
+        <div class="section-container">
+
+            <div class="reservation-box">
+
+                <h2>
+                    Reserve Your Table
+                </h2>
+
+                <form>
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Your name"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                placeholder="Your phone number"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Date
+                            </label>
+
+                            <input
+                                type="date"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Time
+                            </label>
+
+                            <input
+                                type="time"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Guests
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    2 Guests
+                                </option>
+
+                                <option>
+                                    3 Guests
+                                </option>
+
+                                <option>
+                                    4 Guests
+                                </option>
+
+                                <option>
+                                    5 Guests
+                                </option>
+
+                                <option>
+                                    6+ Guests
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Seating
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Garden Seating
+                                </option>
+
+                                <option>
+                                    Indoor Seating
+                                </option>
+
+                                <option>
+                                    Private Corner
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Special Request
+                            </label>
+
+                            <textarea
+                                placeholder="Tell us about your preference"></textarea>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        class="submit-btn"
+                        type="submit">
+
+                        REQUEST RESERVATION
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT MARQUEE
+    ========================================================== -->
+
+    <div class="contact-marquee">
+
+        <div class="marquee-track">
+
+            <span>
+                THE GOLDEN SPOON
+            </span>
+
+            <span>
+                FOREST DINING
+            </span>
+
+            <span>
+                HERITAGE FLAVOURS
+            </span>
+
+            <span>
+                WARM EVENINGS
+            </span>
+
+            <span>
+                THE GOLDEN SPOON
+            </span>
+
+            <span>
+                FOREST DINING
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    THE GOLDEN SPOON
+                </h2>
+
+                <p>
+                    A heritage-inspired restaurant surrounded by
+                    greenery, warm lights and the timeless flavours
+                    of India's traditional food culture.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Explore
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Our Story
+                    </li>
+
+                    <li>
+                        Heritage Menu
+                    </li>
+
+                    <li>
+                        Experience
+                    </li>
+
+                    <li>
+                        Reservation
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Experience
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Garden Dining
+                    </li>
+
+                    <li>
+                        Family Dining
+                    </li>
+
+                    <li>
+                        Couple Seating
+                    </li>
+
+                    <li>
+                        Private Corners
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Contact
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Andhra Pradesh, India
+                    </li>
+
+                    <li>
+                        Open Daily
+                    </li>
+
+                    <li>
+                        Evening Dining
+                    </li>
+
+                    <li>
+                        Reservations Available
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 The Golden Spoon.
+            Heritage • Nature • Food • People
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
